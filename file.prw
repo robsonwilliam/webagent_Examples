@@ -24,9 +24,9 @@ User Function WAFiles ()
     cVar += aRet[nI][1] + CRLF
   next
 
-  DEFINE DIALOG oDlg TITLE "Exemplo Acesso Arquivos" FROM 180,180 TO 800,600 PIXEL
+  DEFINE DIALOG oDlg TITLE "Exemplo Acesso Arquivos" FROM 180,180 TO 600,600 PIXEL
   
-  oTMultiget1 := tMultiget():new( 01, 01, {| u | if( pCount() > 0, cVar := u, cVar ) }, oDlg, 200, 200, , , , , , .T. )
+  oTMultiget1 := tMultiget():new( 01, 01, {| u | if( pCount() > 0, cVar := u, cVar ) }, oDlg, 200, 100, , , , , , .T. )
 
   nHdl := FOpen(carquivo)
   if (nHdl>0)
@@ -35,7 +35,7 @@ User Function WAFiles ()
   endif
 
   cCont := "Conteúdo do arquivo " + carquivo + ":" + CRLF + cConteudo
-  oTMultiget2 := tMultiget():new( 180, 01, {| u | if( pCount() > 0, cCont := u, cCont ) }, oDlg, 200, 200, , , , , , .T. )
+  oTMultiget2 := tMultiget():new( 100, 01, {| u | if( pCount() > 0, cCont := u, cCont ) }, oDlg, 200, 200, , , , , , .T. )
 
   ACTIVATE DIALOG oDlg CENTERED
 
